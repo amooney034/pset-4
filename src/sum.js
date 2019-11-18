@@ -6,7 +6,8 @@ let lowerBound =Number(readlineSync.question("\nLower bound: "));
 let upperBound = Number(readlineSync.question("Upper bound: "));
 let finalEven;
 let initialEven;
-let n;
+
+
 
 while ((upperBound < MIN) || (lowerBound > upperBound) || (lowerBound < MIN) || (lowerBound > MAX) || (upperBound > MAX) || (!(Number.isInteger(upperBound)))
 || (!(Number.isInteger(lowerBound))) || (Number.isNaN(lowerBound)) || (Number.isNaN(upperBound)))  {
@@ -26,17 +27,12 @@ if (lowerBound % 2 === 0) {
   initialEven = lowerBound + 1
 }
 
-if ((upperBound % 2 === 0) && (lowerBound % 2 === 0)) {
-  n = upperBound / 2
-} else if (upperBound % 2 === 0 && lowerBound % 2 !== 0) {
-  n = (upperBound / 2) - 1
-} else if (upperBound % 2 !== 0) {
-  n = Math.floor(upperBound - 1)
-}
+let average = ((finalEven + initialEven)/2);
+let quantity = (((finalEven - initialEven)/2) + 1);
+let formula = average * quantity
+let formulaTwo = formula.toLocaleString('en');
 
-
-let sumin = (initialEven + finalEven);
-let next = (n / 2) * sumin;
+console.log("\n" + formulaTwo + ".\n");
 
 
 console.log("\n" + next + ".\n");
