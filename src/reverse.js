@@ -17,5 +17,6 @@ function reverseNumber(input) {
   }
   return revNumber;
 }
-
-console.log(reverseNumber(input));
+let final = (reverseNumber(input));
+let secondFinal = final.toLocaleString();
+console.log(secondFinal);
