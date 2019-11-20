@@ -9,16 +9,18 @@ while ((input < MIN) || (input > MAX) || (!(Number.isInteger(input))) ||
   input = Number(readlineSync.question("Positive integer: "));
 }
 
-function reverseNumber(input) {
-  var revNumber = 0;
-  while (input > 0) {
-    revNumber = (revNumber * 10) + (input % 10);
-    input = Math.floor(input / 10);
+let revNumber = 0;
+let revNumberComma = "";
+while (input > 0) {
+  revNumber = (input % 10);
+  input = Math.floor(input / 10);
+  if (input === 0) {
+    revNumberComma = revNumberComma + revNumber + ".";
   }
-  return revNumber;
+  else {
+    revNumberComma = revNumberComma + revNumber + ", ";
+  }
 }
 
-let final = (reverseNumber(input));
-let secondFinal = final.toLocaleString('en');
-let finalDisplay = ([...reverseNumber(input)+''].map(n=>+n))
-console.log("\n" + finalDisplay + "\n");
+
+console.log("\n" + revNumberComma + "\n");
