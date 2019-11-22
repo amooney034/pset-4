@@ -33,6 +33,3 @@ let formula = average * quantity
 let formulaTwo = formula.toLocaleString('en');
 
 console.log("\n" + formulaTwo + ".\n");
-
-
-console.log("\n" + next + ".\n");
