@@ -1,20 +1,32 @@
-const input = require("readline-sync");
+const readlineSync = require("readline-sync");
 
 const MAX = Number.MAX_SAFE_INTEGER;
-let number = Number(input.question("\nPositive integer: "));
-let range = [];
-let zero = 0;
+let input = 0;//positiveInteger
+let number = 1; // x
+let zero = 0; //y
+let final = ""; //final
 
-while (number > MAX || number < 1 || Number.isNaN(number)
-|| number % 1 != 0 || !Number.isInteger(number)) {
- number = Number(input.question("Positive integer: "));
+console.log();
+
+do {
+      input = Number(readlineSync.question("Positive integer: "));
 }
-for (let i = 1; i < number / 2; i++) {
- if (number % i == 0) {
-   zero = number / i;
-   range.push(i);
-   range.push(zero);
- }
+while (input <= 0 || input > MAX || Number.isNaN(input) || !Number.isInteger(input));
+
+while (number <= Math.floor(Math.sqrt(input))) {
+if (number <= input) {
+  zero = input % number
+
+if (number === Math.floor(Math.sqrt(input))) {
+  final = final + number + ". "
+break;
+      }
+else if (zero === 0) {
+  final = final + number + ", " + (input / number) + ", "
 }
-range = [...new Set(range)];
-console.log("\n" + range.join (", ") + ".\n");
+  number++
+}
+}
+
+
+  console.log("\n" + final + "\n");
