@@ -1,15 +1,20 @@
 const readlineSync = require("readline-sync");
 
-const MIN = 1;
 const MAX = 24;
-let height = Number(readlineSync.question("\nHeight: "));
-
-while ((height < MIN) || (height > MAX) || (!(Number.isInteger(height))) ||
-(Number.isNaN(height)))  {
-  height = Number(readlineSync.question("Height: "));
+const MIN = 1;
+let input = Number(readlineSync.question("\nHeight: "));
+let dialogue = "";
+while (input > MAX || input < MIN || Number.isNaN(input) || input%1!=0){
+  input = Number(readlineSync.question("Height: "));
 }
-
-for (height = Number(readlineSync.question("\nHeight: "));
-  1 >= height <= 24; height + " #") {
-  console.log(height);
+console.log();
+for (let i = MIN; i < input + 1; i++){
+for (let x = 0; x < input - i; x++){
+dialogue = dialogue + " ";
+}
+for (let x = 0; x < i + MIN; x++){
+dialogue = dialogue + "#";
+}
+console.log(dialogue);
+dialogue = "";
 }
